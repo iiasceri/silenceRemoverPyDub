@@ -23,7 +23,7 @@ def remove_silence(input_file, format, silence_threshold=-50, silence_duration=5
 
 
 # Provide the input and output file paths
-input_file = "rap_girl.mp3"
+input_file = "melobytes.mp3"
 format = "mp3"
 
 # Remove silence from the audio file
