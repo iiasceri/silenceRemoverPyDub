@@ -2,9 +2,9 @@ from pydub import AudioSegment
 from pydub.silence import split_on_silence
 
 
-def remove_silence(input_file, output_file, silence_threshold=-50, silence_duration=500):
+def remove_silence(input_file, format, silence_threshold=-50, silence_duration=500):
     # Load the audio file
-    audio = AudioSegment.from_file(input_file, format="mp3")
+    audio = AudioSegment.from_file(input_file, format=format)
 
     # Split the audio into chunks based on silence
     chunks = split_on_silence(
@@ -19,12 +19,12 @@ def remove_silence(input_file, output_file, silence_threshold=-50, silence_durat
         output += chunk
 
     # Export the output audio to a file
-    output.export(output_file, format="mp3")
+    output.export("out"+input_file, format=format)
 
 
 # Provide the input and output file paths
-input_file = "in_my_head_screaming.mp3"
-output_file = "out.mp3"
+input_file = "rap_girl.mp3"
+format = "mp3"
 
 # Remove silence from the audio file
-remove_silence(input_file, output_file)
+remove_silence(input_file, format)
